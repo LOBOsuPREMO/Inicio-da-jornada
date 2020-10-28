@@ -1,0 +1,24 @@
+<!-- Instrução que indica a versão do HTML-->
+<!DOCTYPE html>
+<!-- ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷ -->
+
+<!--Tag raiz! -->
+<html lang="pt-br">
+<!-- ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷ -->
+
+  <!-- Cabeça da pagna! armazena tags 
+  de definição, organização e script -->
+  <head>
+  <!-- ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷ -->
+
+    <title>Estrutura basica html</title>
+  </head>
+  
+  <!--corpo da pagna -->
+  <body>
+  <!-- ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷ -->
+  
+  Olá mundo!! um dia minhas idéias te mudará!
+  
+  </body>
+</html>
