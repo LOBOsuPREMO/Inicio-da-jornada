@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>CFB cursos setInterval e setTimeout</title>
+    <style>
+    /*Tela mudar cor*/
+     div{ 
+       width:300px;
+       height:300px;
+       position:absolute;
+       border:2px solid #000 }
+     /* ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷ */
+     /* Formatação dos botões parar e iniciar*/
+     button{
+       font-size:40px;
+       width:140px;
+       height:90px;
+       position: absolute;
+       top:330px; }
+     /* ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷ */
+     
+     /* posição do botao parar */
+     button#bt2{ 
+       left: 170px; }
+     /* ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷ */
+     
+    </style>
+  </head>
+  <body>
+    <div id="cores">
+    </div>
+    <button id="bt1">Iniciar</button>
+    <button id="bt2">Parar</button>
+    
+    <script>
+     //Idis que serão utilizadas 
+     var cor= document.getElementById("cores")
+     var inicio= document.getElementById("bt1")
+     var fim= document.getElementById("bt2")
+     // ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷ 
+     
+     //função para mudar a cor
+     function MUDARcor(){
+       r= Math.round(Math.random()*255)
+       g= Math.round(Math.random()*255)
+       b= Math.round(Math.random()*255)
+       cor.style.backgroundColor="rgb("+r+","+g+","+b+")"
+     } // ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷ 
+     
+     // Iniciar mudança de cor
+     function Iniciar(){
+       tempo= setInterval(MUDARcor,800)
+     } // ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷ 
+     
+     // Finalizar mudança de cor
+     function Parada(){
+       clearInterval(tempo)
+     } // ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷ 
+     
+     //Eventos principais
+     inicio.addEventListener("click",Iniciar)
+     fim.addEventListener("click",Parada)
+     // ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷ 
+     
+    </script>
+  </body>
+</html>
