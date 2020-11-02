@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Desafio CFB Cursos</title>
+    <style>
+    
+      /*Quadrado para  mover */
+      div{
+        width:100px;
+        height:100px;
+        border:1px solid #000;
+        position:absolute;
+        left:0px;
+        top:0px; }
+      /* ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷ */
+      
+      /* formatação dos botões*/
+      button.bt{
+        width:40px;
+        height:40px;
+        font-size:25px;
+        position: absolute;}
+      /* ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷ */
+      
+      /*Posição dos botões direcionais*/
+      button#bt1{bottom: 150px; left:150px;}
+      button#bt2{bottom:  70px; left:150px;}
+      button#bt3{bottom: 110px; left:110px;}
+      button#bt4{bottom: 110px; left:190px;}
+      /* ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷ */
+      
+      /*Posição do botão Enter*/
+      button#bt5{width: 80px; bottom: 110px;
+        background-color: #fff;}
+      /* ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷ */
+        
+    </style>
+  </head>
+  <body>
+    
+    <!--Quadrado para mover-->
+    <div id="quadrado">
+    </div>
+    <!-- ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷ -->
+    
+    <!-- Botões direcionais para mover o cubo-->
+    <button class="bt" id="bt1">⬆️</button>
+    <button class="bt" id="bt4">➡️</button>
+    <button class="bt" id="bt2">⬇️</button>
+    <button class="bt" id="bt3">⬅️</button>
+    <!-- ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷ -->
+    
+    <!-- Botão enter para encerrar a movimentação -->
+    <button class="bt" id="bt5">Enter</button>
+    <!-- ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷ -->
+    
+    <script>
+      //Todas ids nescessárias
+      var mover= document.getElementById("quadrado")
+      var cima= document.getElementById("bt1")
+      var baixo= document.getElementById("bt2")
+      var esquerda= document.getElementById("bt3")
+      var direita= document.getElementById("bt4")
+      var parar= document.getElementById("bt5")
+      // ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷ 
+      
+      //Posição da div
+      var px=0
+      var py=0
+      // ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷
+      
+      //Funcoes para mover
+      function Descer(){
+        py+=20
+        mover.style.top=py+"px" }
+      // ------------------------
+      function Subir(){
+        py-=20
+        mover.style.top=py+"px" }
+      // ------------------------
+      function Esquerda(){
+        px-=20
+        mover.style.left=px+"px" }
+      // ------------------------
+      function Direita(){
+      px+=20
+      mover.style.left=px+"px" }
+      // ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷
+      
+      // Clicar na div para ativar botões
+      function iniciar(){
+      alert("Evento 'Mover' Adicionado! ")
+      baixo.addEventListener("click",Descer)
+      cima.addEventListener("click",Subir)
+      esquerda.addEventListener("click",Esquerda)
+      direita.addEventListener("click",Direita)
+      mover.style.backgroundColor="red"
+      parar.style.backgroundColor="#fff" }
+      // -------------------------
+      mover.addEventListener("click",iniciar)
+      // ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷
+      
+      //Clicar no Enter para desativar
+      function finalizar(){
+        alert("Evento 'mover' Removido")
+        parar.style.backgroundColor="red"
+        mover.style.backgroundColor="#fff"
+        baixo.removeEventListener("click",Descer)
+        cima.removeEventListener("click",Subir)
+        esquerda.removeEventListener("click",Esquerda)
+        direita.removeEventListener("click",Direita)
+        
+        
+      }
+      //------------------------
+      parar.addEventListener("click",finalizar)
+    
+    </script>
+  </body>
+</html>
