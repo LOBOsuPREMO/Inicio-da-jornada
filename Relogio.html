@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Relogio</title>
+<style type="text/css">
+  input{
+    position: absolute;
+    background-color:#000;
+    color:#00ff00;
+    font-size: 30px;
+    font-weight: bold;
+    height: 40px;
+    width:130px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<input id="relogio" value="">
+<script>
+  //Ids que necessarias //
+  contagem= document.getElementById("relogio")
+  // ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷ //
+  
+  // Extrutura do relógio //
+  function Relogio(){
+    var data= new Date()
+    var hor= data.getHours()
+    var min= data.getMinutes()
+    var seg= data.getSeconds()
+    if(hor<10){ hor="0"+hor }
+    if(min<10){ min="0"+min }
+    if(seg<10){ seg="0"+seg }
+    
+    var tempo= hora+":"+min+":"+seg
+    contagem.value=tempo
+  }// ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷ //
+  
+  // Iniciar Relógio //
+  setInterval(Relogio,1000)
+  // ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷ //
+</script>
+</body>
+</html>
