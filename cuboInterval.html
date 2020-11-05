@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Request Animation Frame</title>
+  <style type="text/css">
+    div{
+     position: absolute;
+     width: 50px;
+     height: 50px;
+     background-color: blue;
+     top: 0px;
+     left: 0px;
+    }
+  </style>
+</head>
+<body>
+  <div id="mov"></div>
+  <script>
+    var cubo= document.getElementById("mov")
+    var velocidade= 5
+    var dx= 1
+    var dy= 0
+    var px= 0
+    var py= 0
+    
+    function iniciar(){
+      px+= velocidade*dx
+      if(px>300){ dx=-1}
+      if(px<0){dx=1}
+      cubo.style.left=px+"px"
+      animar= requestAnimationFrame(iniciar)
+    }            
+    iniciar()
+  </script>
+</body>
+</html>
