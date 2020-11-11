@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css">
+    div{
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-color: black;
+      left: 10px;
+      top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="driver"></div>
+  
+  <script type="text/javascript">
+    //variaveis
+    var cubo= document.getElementById("driver")
+    var cor= document.getElementById("driver")
+    var px=10, py=10
+    var dx=0, dy=0
+    var vl=5
+    var cor1=0
+    var estado= true
+    //mudar cor
+    function MUDARcor(){
+      var r= Math.round(Math.random()*255)
+      var g= Math.round(Math.random()*255)
+      var b= Math.round(Math.random()*255)
+      cor.style.backgroundColor="rgb("+r+","+g+","+b+")"
+    }
+    function CORES(){
+     if(px==10&&py==10){estado=false
+     }else{estado=true}
+     if(px>300&&py==10){estado=false}
+     if(py>350&&px>300){estado=false}
+     if(px==10&&py>350){estado=false}
+     if(!estado){MUDARcor()}
+    }
+    function MOVIMENTO(){
+      px+= dx*vl
+      py+= dy*vl
+      VIRAR()
+      cubo.style.left= px+"px"
+      cubo.style.top= py+"px"
+      requestAnimationFrame (MOVIMENTO)
+    }
+   MOVIMENTO()
+    //direção
+    function VIRAR(){
+      if(px>=10&&py<=10){dx=1; dy=0;}
+      if(px>300){dx=0; dy=1}
+      if(py>350){dx=-1; dy=0;}
+      if(px<=10&&py>10){dx=0; dy=-1;}
+      CORES()
+    }
+    
+  </script>
+</body>
+</html>
